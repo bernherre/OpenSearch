@@ -14,11 +14,12 @@ var1= arg["..."]
 config_especials={"spark.sql.session.timeZone":"UTC",
                   "spark.sql...
 }
+conf=SparkConf()
 if config_espacials and isinstance(config_especials,dict):
     for k,v in config_especials.items():
       conf.set(k,v)
       
-sc= SparkContext(conf=config_especials)
+sc= SparkContext(conf=conf)
 glueContext=GlueContext(sc)
 spark=glueContext.spark_session
 job=Job(Context)
